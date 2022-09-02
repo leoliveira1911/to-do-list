@@ -1,0 +1,26 @@
+.app {
+  display: grid;
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: var(--header-height) 1fr var(--footer-height);
+  grid-template-areas:
+    "logo header"
+    "nav content"
+    "nav footer";
+  height: 100vh;
+}
+
+aside.logo {
+  grid-area: logo;
+}
+
+aside.nav {
+  grid-area: nav;
+}
+
+header.header {
+  grid-area: header;
+}
+
+main.content {
+  grid-area: content;
+}
