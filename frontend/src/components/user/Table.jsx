@@ -1,4 +1,5 @@
 import React from "react";
+import { DeleteIcon, EditIcon } from '../../assets/icons/index'
 
 function renderTable(tasks) {
     console.log(tasks)
@@ -10,7 +11,15 @@ function renderTable(tasks) {
                     <td>{task.name}</td>
                     <td>{task.description}</td>
                     <td>{task.deadline}</td>
-                    <td>{task.concluded}</td>
+                    <td>{task.concluded === false ? 'Não' : 'Sim'}</td>
+                    <td className="flex justify-around ">
+                        <button className="">
+                            {DeleteIcon}
+                        </button>
+                        <button className="">
+                            {EditIcon}
+                        </button>
+                    </td>
                 </tr>
             )
         })
@@ -31,6 +40,7 @@ export default (props) =>
                 <td className="p-3">Descrição</td>
                 <td className="p-3">Prazo</td>
                 <td className="p-3">Concluída</td>
+                <td className="p-3">Ação</td>
             </tr>
         </thead>
         <tbody>
