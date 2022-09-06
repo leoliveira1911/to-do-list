@@ -4,8 +4,9 @@ import Table from "./Table";
 import { UsersIcon } from "../../assets/icons";
 import { useState } from "react";
 import axios from "axios";
+import TaskCrud from "./TaskCrud";
 
-import TaskCrud from './TaskCrud'
+
 import { useEffect } from "react";
 
 const headerProps = {
@@ -20,6 +21,7 @@ export default function User() {
     const [updateTasks, setUpdateTasks] = useState(false)
 
     async function getTasks() {
+        console.log('GET TASKS NA ÁREA, BEATCHES')
         axios.get("http://localhost:3002/api/get").then((resp) => {
             setTasks(resp.data)
         })
@@ -35,7 +37,7 @@ export default function User() {
 
     async function save() {
 
-        await axios.post("http://localhost:3002/api/create", { name: state.name, description: state.description, deadline: state.deadline, concluded: state.concluded }).then(getTasks())
+        await axios.post("http://localhost:3002/api/create", { name: state.name, description: state.description, deadline: state.deadline, concluded: 'false' }).then(getTasks())
 
     }
 
@@ -69,8 +71,14 @@ export default function User() {
         setAddTasks(false)
 
     }
+    async function checkTask(task) {
+        console.log('CHECKBOX EM TASK')
+        await axios.post("http://localhost:3002/api/update", { name: task.name, description: task.description, deadline: task.deadline, concluded: task.concluded === 'true' ? 'false' : 'true', id: task.id }).then(getTasks())
+
+    }
     useEffect(() => {
         getTasks()
+
     }, [])
 
 
@@ -103,12 +111,12 @@ export default function User() {
                         <input placeholder="deadline" className={`text-black rounded-md px-2 py-1`} value={state.deadline} onChange={e => updateField(e)} name="deadline" />
                     </div>
 
-                    <div className={`
+                    {/*  <div className={`
                             flex flex-col p-1 font-semibold
                         `}>
                         <label htmlFor='concluded'> Concluído </label>
                         <input placeholder="Concluído" className={`text-black rounded-md px-2 py-1`} value={state.concluded} onChange={e => updateField(e)} name="concluded" />
-                    </div>
+                    </div> */}
                     <div>
 
                     </div>
@@ -145,12 +153,12 @@ export default function User() {
                         <input placeholder="deadline" className={`text-black rounded-md px-2 py-1`} value={state.deadline} onChange={e => updateField(e)} name="deadline" />
                     </div>
 
-                    <div className={`
+                    {/*   <div className={`
                             flex flex-col p-1 font-semibold
                         `}>
                         <label htmlFor='concluded'> Concluído </label>
                         <input placeholder="Concluído" className={`text-black rounded-md px-2 py-1`} value={state.concluded} onChange={e => updateField(e)} name="concluded" />
-                    </div>
+                    </div> */}
                     <div>
 
                     </div>
@@ -166,7 +174,7 @@ export default function User() {
             <div className={`
             flex flex-col items-center justify-center
             `}>
-                <Table tasks={tasks} update={(task) => updateTask(task)} del={(e) => { del(e); getTasks() }} />
+                <Table tasks={tasks} update={(task) => updateTask(task)} del={(e) => { del(e); getTasks() }} check={(e) => { checkTask(e); getTasks() }} />
                 <button onClick={() => addTask()}>Adicionar Tarefa</button>
                 {addTasks === true ? renderFormAdd() : (null)}
                 {updateTasks === true ? renderFormUpdate() : (null)}

@@ -33,6 +33,7 @@ app.post("/api/create", (req, res) => {
       if (err) {
         console.log(err);
       }
+      res.status(200).send("OK");
       console.log(result);
     }
   );
@@ -56,6 +57,7 @@ app.post("/api/update", (req, res) => {
         console.log(err);
       }
       console.log(result);
+      res.status(200).send("OK");
     }
   );
 });
@@ -69,6 +71,7 @@ app.delete("/api/delete/:id", (req, res) => {
     if (err) {
       console.log(err);
     }
+    res.status(200).send("OK");
   });
 });
 

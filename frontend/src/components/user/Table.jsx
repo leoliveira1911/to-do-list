@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, setState } from "react";
 import { DeleteIcon, EditIcon } from '../../assets/icons/index'
 
 
 export default function Table(props) {
 
+
+
+
     function renderTable(tasks) {
-        console.log(tasks)
+
+
         return (
             tasks?.map((task, index) => {
-
+                const check = task.concluded === 'true' ? true : false
                 return (
 
                     <tr key={index} className={`${index % 2 == 0 ? 'bg-purple-500' : 'bg-purple-600'}`}>
-                        <td className="py-2 ">{task.name}</td>
-                        <td className="py-2 ">{task.description}</td>
-                        <td className="py-2 ">{task.deadline}</td>
-                        <td className="py-2 ">{task.concluded}</td>
+                        <td className={`${task.concluded === 'true' ? 'line-through' : ''}`} >{task.name}</td>
+                        <td className={`${task.concluded === 'true' ? 'line-through' : ''}`}>{task.description}</td>
+                        <td className={`${task.concluded === 'true' ? 'line-through' : ''}`}>{task.deadline}</td>
+                        {/* {task.concluded === 'true' ? ( */}
+                        <td className="py-2 "><input type={'checkbox'} checked={check} onChange={() => { props.check(task); console.log('CHEKBOX EM TABLE') }} /></td>
+                        {/* ) : <td className="py-2 "><input type={'checkbox'} onChange={() => { props.check(task) }} /></td>} */}
                         <td className="table-cell">
                             <button className="" onClick={() => props.del(task.id)}>
                                 {DeleteIcon}
