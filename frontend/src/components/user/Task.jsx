@@ -87,9 +87,9 @@ export default function User() {
 
     function renderFormAdd() {
         return (
-            <div >
+            <div className="flex flex-col items-center" >
                 <h1 className="font-semibold text-lg text-center mt-3">Adicionar Tarefa</h1>
-                <form>
+                < form >
                     <div className={`
                             flex flex-col p-1 font-semibold 
                         `}>
@@ -120,16 +120,19 @@ export default function User() {
                     <div>
 
                     </div>
-                </form>
-                <button onClick={e => { save(); cancel(e); getTasks() }}>Salvar</button>
-                <button onClick={e => cancel(e)} >Cancelar</button>
+                </form >
+                <div>
+                    <button onClick={e => { save(); cancel(e); getTasks() }}>Salvar</button>
+                    <button onClick={e => cancel(e)} >Cancelar</button>
 
-            </div>
+                </div>
+
+            </div >
         )
     }
     function renderFormUpdate() {
         return (
-            <div>
+            <div className="flex flex-col justify-center items-center">
                 <h1 className="font-semibold text-lg text-center mt-3">Editar Tarefa</h1>
                 <form>
                     <div className={`
@@ -163,8 +166,11 @@ export default function User() {
 
                     </div>
                 </form>
-                <button onClick={e => { update(); cancel(e); getTasks() }}>Salvar</button>
-                <button onClick={e => cancel(e)} >Cancelar</button>
+                <div>
+                    <button onClick={e => { update(); cancel(e); getTasks() }}>Salvar</button>
+                    <button onClick={e => cancel(e)} >Cancelar</button>
+
+                </div>
 
             </div>
         )
@@ -175,9 +181,10 @@ export default function User() {
             flex flex-col items-center justify-center
             `}>
                 <Table tasks={tasks} update={(task) => updateTask(task)} del={(e) => { del(e); getTasks() }} check={(e) => { checkTask(e); getTasks() }} />
-                <button onClick={() => addTask()}>Adicionar Tarefa</button>
+
                 {addTasks === true ? renderFormAdd() : (null)}
                 {updateTasks === true ? renderFormUpdate() : (null)}
+                {updateTasks === false && addTasks === false ? (<button onClick={() => addTask()}>Adicionar Tarefa</button>) : (null)}
 
             </div>
         </Main>
