@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import Main from '../template/Main'
 import { UsersIcon } from '../../assets/icons'
 import Table from './Table'
+import axios from 'axios'
 
 
 const headerProps = {
@@ -64,9 +65,6 @@ export default class TaskCrud extends Component {
         this.setState({ task: initialState.task })
     }
 
-    getTasks() {
-
-    }
 
     renderForm() {
         return (
@@ -101,6 +99,7 @@ export default class TaskCrud extends Component {
                 <div>
                     <button type='submit' onClick={(e) => this.save(e)}>Salvar</button>
                     <button onClick={(e) => this.cancel(e)} >Cancelar</button>
+                    <button onClick={() => this.getTasks()} > Teste </button>
                 </div>
             </form>
         )
@@ -109,7 +108,7 @@ export default class TaskCrud extends Component {
     render() {
         return (
             <Main {...headerProps}>
-                <Table tasks={tasksList} />
+                <Table tasks={this.state.list} />
                 {this.renderForm()}
             </Main>
         )
