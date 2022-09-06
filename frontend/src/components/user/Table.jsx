@@ -15,7 +15,7 @@ export default function Table(props) {
                         <td>{task.name}</td>
                         <td>{task.description}</td>
                         <td>{task.deadline}</td>
-                        <td>{task.concluded === false ? 'Não' : 'Sim'}</td>
+                        <td>{task.concluded}</td>
                         <td className="flex justify-around ">
                             <button className="" onClick={() => props.del(task.id)}>
                                 {DeleteIcon}
