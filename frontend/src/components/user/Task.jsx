@@ -4,7 +4,7 @@ import Table from "./Table";
 import { TasksIcon } from "../../assets/icons";
 import { useState } from "react";
 import axios from "axios";
-import TaskCrud from "./TaskCrud";
+
 
 
 import { useEffect } from "react";
@@ -66,7 +66,7 @@ export default function User() {
     }
 
     function updateTask(task) {
-        setUpdateTasks(true)
+        updateTasks === true ? setUpdateTasks(false) : setUpdateTasks(true)
         setState({ name: task.name, description: task.description, deadline: task.deadline, concluded: task.concluded, id: task.id })
         setAddTasks(false)
 

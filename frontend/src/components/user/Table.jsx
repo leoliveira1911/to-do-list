@@ -5,8 +5,6 @@ import { DeleteIcon, EditIcon } from '../../assets/icons/index'
 export default function Table(props) {
 
 
-
-
     function renderTable(tasks) {
 
 
@@ -35,6 +33,21 @@ export default function Table(props) {
             })
         )
     }
+    function counter() {
+        let done = 0
+        let total = 0
+
+        props.tasks?.map((task) => {
+            if (task.concluded === 'true') {
+                done = done + 1
+                total = total + 1
+            } else {
+                total = total + 1
+            }
+        })
+
+        return { total, done }
+    }
 
 
     return (
@@ -55,7 +68,9 @@ export default function Table(props) {
                 {renderTable(props.tasks)}
             </tbody>
             <tfoot >
-                <tr className="rounded-lg"></tr>
+                <tr className="rounded-lg">
+                    Progresso: {counter().done} /  {counter().total}
+                </tr>
             </tfoot>
         </table>
     )

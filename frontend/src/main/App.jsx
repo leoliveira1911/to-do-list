@@ -7,13 +7,19 @@ import Logo from '../components/template/Logo';
 import { BrowserRouter } from 'react-router-dom'
 import Routes from "./Routes";
 
-export default props =>
-    <BrowserRouter>
+const App = () => {
+    return (
 
-        <div className='app'>
-            <Logo />
-            <Nav />
-            <Routes />
-            <Footer />
-        </div>
-    </BrowserRouter>
+        <BrowserRouter>
+
+            <div className='app'>
+                <Logo />
+                <Nav />
+                <Routes />
+                <Footer />
+            </div>
+        </BrowserRouter>
+    )
+}
+
+export default App
