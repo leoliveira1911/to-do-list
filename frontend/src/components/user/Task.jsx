@@ -1,7 +1,7 @@
 import React from "react";
 import Main from "../template/Main";
 import Table from "./Table";
-import { UsersIcon } from "../../assets/icons";
+import { TasksIcon } from "../../assets/icons";
 import { useState } from "react";
 import axios from "axios";
 import TaskCrud from "./TaskCrud";
@@ -10,9 +10,9 @@ import TaskCrud from "./TaskCrud";
 import { useEffect } from "react";
 
 const headerProps = {
-    icon: UsersIcon(8),
-    title: "Usuários",
-    subtitle: "Cadastro de Usuários: Incluir, Listar, Alterar e Excluir "
+    icon: TasksIcon(8),
+    title: "Tarefas",
+    subtitle: "Cadastro de Tarefas: Incluir, Listar, Alterar e Excluir "
 }
 
 export default function User() {
@@ -93,8 +93,8 @@ export default function User() {
                     <div className={`
                             flex flex-col p-1 font-semibold 
                         `}>
-                        <label htmlFor='name'> Despesa </label>
-                        <input placeholder="Despesa" className={`text-black rounded-md px-2 py-1`} required value={state.name} onChange={e => updateField(e)} name="name" />
+                        <label htmlFor='name'> Tarefa </label>
+                        <input placeholder="Tarefa" className={`text-black rounded-md px-2 py-1`} required value={state.name} onChange={e => updateField(e)} name="name" />
                     </div>
 
                     <div className={`
@@ -108,7 +108,7 @@ export default function User() {
                             flex flex-col p-1 font-semibold
                         `}>
                         <label htmlFor='deadline'> Prazo </label>
-                        <input placeholder="deadline" className={`text-black rounded-md px-2 py-1`} value={state.deadline} onChange={e => updateField(e)} name="deadline" />
+                        <input placeholder="Prazo" className={`text-black rounded-md px-2 py-1`} value={state.deadline} onChange={e => updateField(e)} name="deadline" />
                     </div>
 
                     {/*  <div className={`

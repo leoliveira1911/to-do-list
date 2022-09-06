@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeIcon, UsersIcon } from "../../assets/icons/index"
+import { HomeIcon, TasksIcon } from "../../assets/icons/index"
 import { Link } from 'react-router-dom'
 
 export default props =>
@@ -10,7 +10,7 @@ export default props =>
                 {HomeIcon(3)} Início
             </Link>
             <Link to='/users' className="flex p-3 hover:bg-gradient-to-r from-purple-600 to-purple-900">
-                {UsersIcon(3)} Usuários
+                {TasksIcon(3)} Tarefas
             </Link>
 
         </nav>
