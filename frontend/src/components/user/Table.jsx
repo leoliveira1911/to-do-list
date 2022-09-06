@@ -11,12 +11,12 @@ export default function Table(props) {
 
                 return (
 
-                    <tr key={index} className={`${index % 2 == 0 ? 'bg-purple-400' : 'bg-purple-500'}`}>
-                        <td>{task.name}</td>
-                        <td>{task.description}</td>
-                        <td>{task.deadline}</td>
-                        <td>{task.concluded}</td>
-                        <td className="flex justify-center ">
+                    <tr key={index} className={`${index % 2 == 0 ? 'bg-purple-500' : 'bg-purple-600'}`}>
+                        <td className="py-2 ">{task.name}</td>
+                        <td className="py-2 ">{task.description}</td>
+                        <td className="py-2 ">{task.deadline}</td>
+                        <td className="py-2 ">{task.concluded}</td>
+                        <td className="table-cell">
                             <button className="" onClick={() => props.del(task.id)}>
                                 {DeleteIcon}
                             </button>
@@ -34,7 +34,7 @@ export default function Table(props) {
     return (
 
         <table className={`
-    bg-purple-600 m-3 text-center rounded-lg overflow-hidden w-5/6
+    bg-purple-700 m-3 text-center rounded-lg overflow-hidden w-5/6
     `}>
             <thead >
                 <tr >
