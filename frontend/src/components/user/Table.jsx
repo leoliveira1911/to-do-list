@@ -16,7 +16,7 @@ export default function Table(props) {
                         <td>{task.description}</td>
                         <td>{task.deadline}</td>
                         <td>{task.concluded}</td>
-                        <td className="flex justify-around ">
+                        <td className="flex justify-center ">
                             <button className="" onClick={() => props.del(task.id)}>
                                 {DeleteIcon}
                             </button>
@@ -34,7 +34,7 @@ export default function Table(props) {
     return (
 
         <table className={`
-    bg-purple-600 m-3 text-center rounded-lg overflow-hidden 
+    bg-purple-600 m-3 text-center rounded-lg overflow-hidden w-5/6
     `}>
             <thead >
                 <tr >

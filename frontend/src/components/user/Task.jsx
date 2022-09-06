@@ -64,7 +64,7 @@ export default function User() {
     }
 
     function updateTask(task) {
-        updateTasks === true ? setUpdateTasks(false) : setUpdateTasks(true)
+        setUpdateTasks(true)
         setState({ name: task.name, description: task.description, deadline: task.deadline, concluded: task.concluded, id: task.id })
         setAddTasks(false)
 
@@ -79,7 +79,8 @@ export default function User() {
 
     function renderFormAdd() {
         return (
-            <div>
+            <div >
+                <h1 className="font-semibold text-lg text-center mt-3">Adicionar Tarefa</h1>
                 <form>
                     <div className={`
                             flex flex-col p-1 font-semibold 
@@ -121,6 +122,7 @@ export default function User() {
     function renderFormUpdate() {
         return (
             <div>
+                <h1 className="font-semibold text-lg text-center mt-3">Editar Tarefa</h1>
                 <form>
                     <div className={`
                             flex flex-col p-1 font-semibold 
