@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Home from '../components/home/Home'
 
-import Task from "../components/user/Task";
+import Task from "../components/user/Task.tsx";
 
 const RoutesComponent = () => {
     return (
