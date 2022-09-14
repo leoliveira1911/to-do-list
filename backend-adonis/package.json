@@ -1,67 +1,32 @@
 {
-  "name": "backend-adonis",
-  "version": "1.0.0",
-  "private": true,
+  "name": "adonis-api-app",
+  "version": "4.1.0",
+  "adonis-version": "4.1.0",
+  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "main": "index.js",
   "scripts": {
-    "dev": "node ace serve --watch",
-    "build": "node ace build --production",
     "start": "node server.js",
-    "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "test": "node ace test"
   },
-  "eslintConfig": {
-    "extends": [
-      "plugin:adonis/typescriptApp",
-      "prettier"
-    ],
-    "plugins": [
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error"
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "build"
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
   ],
-  "prettier": {
-    "trailingComma": "es5",
-    "semi": false,
-    "singleQuote": true,
-    "useTabs": false,
-    "quoteProps": "consistent",
-    "bracketSpacing": true,
-    "arrowParens": "always",
-    "printWidth": 100
-  },
-  "devDependencies": {
-    "@adonisjs/assembler": "^5.8.1",
-    "@japa/preset-adonis": "^1.2.0",
-    "@japa/runner": "^2.2.1",
-    "adonis-preset-ts": "^2.1.0",
-    "eslint": "^8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-adonis": "^2.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "pino-pretty": "^9.1.0",
-    "prettier": "^2.7.1",
-    "typescript": "~4.6",
-    "youch": "^3.2.2",
-    "youch-terminal": "^2.1.5"
-  },
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
-    "@adonisjs/auth": "^8.2.2",
-    "@adonisjs/core": "^5.8.6",
-    "@adonisjs/lucid": "^18.1.1",
-    "@adonisjs/repl": "^3.1.11",
-    "@adonisjs/session": "^6.4.0",
-    "luxon": "^3.0.3",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3",
-    "proxy-addr": "^2.0.7",
-    "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.21"
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/auth": "^3.0.7",
+    "@adonisjs/bodyparser": "~2.0.9",
+    "@adonisjs/cors": "^1.0.7",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/framework": "^5.0.9",
+    "@adonisjs/ignitor": "^2.0.8",
+    "@adonisjs/lucid": "^6.1.3",
+    "mysql": "^2.18.1"
+  },
+  "autoload": {
+    "App": "./app"
   }
 }
