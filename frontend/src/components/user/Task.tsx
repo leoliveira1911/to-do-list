@@ -19,9 +19,13 @@ export default function User() {
 
   async function getTasks() {
     console.log("GET TASKS NA ÁREA, BEATCHES");
-    axios.get("http://localhost:3002/api/get").then((resp) => {
-      setTasks(resp.data);
-    });
+    axios
+      .get(
+        "https://to-do-list-ibly-mg3n61dof-leoliveira1911.vercel.app/api/get"
+      )
+      .then((resp) => {
+        setTasks(resp.data);
+      });
   }
 
   const [state, setState] = useState({
