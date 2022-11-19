@@ -1,12 +1,11 @@
 const mysql = require("mysql");
 
 const db = mysql.createConnection({
-  host: "localhost",
-  database: "tasks",
+  host: "to-do-list-test.cmid9eadco8w.sa-east-1.rds.amazonaws.com",
+  database: "to-do",
   port: 3306,
-  user: "root",
+  user: "admin",
   password: "Oliveiraleo12.",
-  socketPath: "/var/run/mysqld/mysqld.sock",
 });
 
 module.exports = db;
