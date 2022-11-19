@@ -29,7 +29,8 @@ app.post("/api/create", (req, res) => {
   console.log(name, description, deadline, concluded);
 
   db.query(
-    `INSERT INTO tasks (name, description, deadline, concluded) VALUES ('${name}','${description}','${deadline}','${concluded}')`,
+    `INSERT INTO tasks (name, description, deadline, concluded) VALUES (?,?,?,?)`,
+    [name, description, deadline, concluded],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -51,8 +52,9 @@ app.post("/api/update", (req, res) => {
 
   db.query(
     `UPDATE tasks
-    set name = '${name}',description = '${description}', deadline = '${deadline}', concluded='${concluded}'
-    WHERE id = '${id}'`,
+    set name = ?,description = ?, deadline = ?, concluded=?
+    WHERE id = ?`,
+    [name, description, deadline, concluded, id],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -68,7 +70,7 @@ app.post("/api/update", (req, res) => {
 app.delete("/api/delete/:id", (req, res) => {
   const id = req.params.id;
   console.log("O ID É:" + id);
-  db.query(`DELETE FROM tasks WHERE id='${id}'`, id, (err, result) => {
+  db.query(`DELETE FROM tasks WHERE id=?`, id, (err, result) => {
     if (err) {
       console.log(err);
     }
